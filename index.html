@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glossy Music Player</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <div class="aurora"></div>
+  <div class="aurora"></div>
+  <div class="wrap">
+    <div class="player" id="player">
+      <div class="left">
+        <div class="art" id="art">
+          <div class="vinyl" id="vinyl"></div>
+          <div class="label"></div>
+        </div>
+        <canvas id="viz"></canvas>
+      </div>
+
+      <div class="right">
+        <div class="title">
+          <div class="thumb" id="thumb"></div>
+          <div>
+            <h1 id="trackName">Drop in a song</h1>
+            <p id="trackArtist">or add from the playlist →</p>
+          </div>
+          <span class="badge" style="margin-left:auto">GLASS+GLOSS</span>
+        </div>
+
+        <div class="controls">
+          <div class="progress">
+            <input type="range" id="seek" min="0" max="1000" value="0">
+            <div class="time"><span id="current">0:00</span><span id="duration">0:00</span></div>
+          </div>
+          <div class="transport">
+            <button class="btn" id="btnPrev" title="Previous" aria-label="Previous">⏮️</button>
+            <button class="btn" id="btnRew" title="Rewind 10s" aria-label="Rewind">⏪</button>
+            <button class="btn primary" id="btnPlay" title="Play/Pause" aria-label="Play">▶️</button>
+            <button class="btn" id="btnFwd" title="Forward 10s" aria-label="Forward">⏩</button>
+            <button class="btn" id="btnNext" title="Next" aria-label="Next">⏭️</button>
+            <button class="btn" id="btnShuffle" title="Shuffle" aria-label="Shuffle">🔀</button>
+            <button class="btn" id="btnRepeat" title="Repeat" aria-label="Repeat">🔁</button>
+          </div>
+          <div></div>
+          <div class="volume">
+            <svg class="icon" viewBox="0 0 24 24" id="volIcon"><path fill="currentColor" d="M3 10v4h4l5 5V5L7 10H3m13.5 2a3.5 3.5 0 0 0-3.5-3.5v7a3.5 3.5 0 0 0 3.5-3.5Z"/></svg>
+            <input type="range" id="volume" min="0" max="1" step="0.01" value="0.8">
+          </div>
+        </div>
+
+        <div class="playlist" id="playlist"></div>
+
+        <div class="footer">
+          <div class="drop" id="drop">Drag & drop audio files here (mp3, wav, m4a) or <label style="text-decoration:underline; cursor:pointer"><input id="file" type="file" accept="audio/*" multiple hidden>browse</label></div>
+          <div style="display:flex; gap:8px; align-items:center">
+            <span class="badge" id="badgeState">IDLE</span>
+            <span class="badge" id="badgeMode">SEQUENTIAL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <audio id="audio"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
